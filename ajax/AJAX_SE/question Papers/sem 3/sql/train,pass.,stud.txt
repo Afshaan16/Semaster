@@ -1,0 +1,10 @@
+create table Train_details(train_no number(5) primary key, train_name varchar(50) NOT NULL);
+
+create table passanger_details( pnr number(10), train_no number(5) , train_name varchar(20), source varchar(20), destination varchar(20) );
+
+alter table passanger_details add constraints s primary key (pnr);
+
+
+
+
+to implement utility constraint object table

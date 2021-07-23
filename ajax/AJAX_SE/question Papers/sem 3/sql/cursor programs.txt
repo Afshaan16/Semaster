@@ -1,0 +1,26 @@
+DECLARE
+CURSOR c_student IS
+SELECT name,gender,rollno
+FROM student where name='rahul';
+BEGIN
+FOR rec IN c_student
+LOOP
+UPDATE student
+SET rollno=24
+WHERE name=rec.name;
+END LOOP;
+COMMIT;
+END;
+
+set serveroutput on;
+
+DECLARE
+CURSOR C1 IS SELECT name,gender,rollno FROM student;
+BEGIN
+FOR REC IN C1 LOOP
+DBMS_OUTPUT.PUT_LINE ('name'|| REC.name);
+DBMS_OUTPUT.PUT_LINE ('gender'|| REC.gender);
+DBMS_OUTPUT.PUT_LINE ('rollno'|| REC.rollno);
+END LOOP;
+END;
+/

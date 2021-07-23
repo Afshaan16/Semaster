@@ -1,0 +1,15 @@
+aim to use set operators
+1 list all JOBs in dept no. 10 or 20 or both.
+2 is all JOBs which are common to dept no. 10 and 20
+3 list all JOBs which are present dept 10 but not in dept 20
+4 retrive enmp names and JOB who have same JOB as that of allen 
+5 list all emp names and salary whose salary is greater than that of all managers
+6 display all emp names and salaries where salary less that of any manager of any dept
+
+
+select JOB from employee where DEPTNO=10 or DEPTNO=20 or DEPTNO=10 and DEPTNO=20;
+select JOB from employee where DEPTNO=10 intersect select JOB from employee where DEPTNO=20;
+select JOB from employee where DEPTNO=10 minus select JOB from employee where DEPTNO=20;
+select ename, JOB from employee where JOB in (select JOB from employee where ename='ALLEN');
+select ENAME,SALARY from employee where SALARY>ALL (select SALARY from employee where JOB ='MANAGER');
+select ENAME,SALARY from employee where SALARY>ANY (select SALARY from employee where JOB ='MANAGER');
